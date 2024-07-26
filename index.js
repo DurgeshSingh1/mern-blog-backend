@@ -32,7 +32,7 @@ cloudinary.config({
 app.use(express.json());
 app.use(cookieParser());
 app.use("/images", express.static(path.join(__dirname, "/images")));
-app.use(cors({ origin: "https://sparkly-madeleine-79e83a.netlify.app", credentials: true }));
+app.use(cors({ origin: "https://sparkly-madeleine-79e83a.netlify.app", credentials: 'include' }));
 
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
