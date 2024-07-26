@@ -43,7 +43,7 @@ router.post("/login",async (req,res)=>{
        maxAge:3600000*5,
        secure:true,
        sameSite:'none',
-       domain: '.netlify.app'
+       domain: 'https://sparkly-madeleine-79e83a.netlify.app/'
     }).status(200).json(info)
 
     }
