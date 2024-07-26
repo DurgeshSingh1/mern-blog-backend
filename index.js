@@ -15,7 +15,7 @@ const cloudinary = require("cloudinary").v2;
 //database
 const connectDB = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/blog_mern");
+    await mongoose.connect(process.env.MONGODB_URL);
     console.log("database is connected successfully!");
   } catch (err) {
     console.log(err);
