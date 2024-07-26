@@ -41,7 +41,7 @@ router.post("/login",async (req,res)=>{
         res.cookie("token",token,{
        httpOnly:true,
        maxAge:3600000*5,
-       secure:true,
+       secure:false,
        sameSite:'none',
        domain: 'https://sparkly-madeleine-79e83a.netlify.app/'
     }).status(200).json(info)
