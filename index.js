@@ -30,7 +30,10 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 app.use(express.json());
-app.use(cors({ origin: "https://sparkly-madeleine-79e83a.netlify.app" }));
+app.use(cors({ origin: "https://sparkly-madeleine-79e83a.netlify.app", credentials: true, headers: {
+        "Access-Control-Allow-Origin": "https://sparkly-madeleine-79e83a.netlify.app",
+        "Access-Control-Allow-Credentials": true
+    } }));
 app.use(cookieParser());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
