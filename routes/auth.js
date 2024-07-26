@@ -38,13 +38,7 @@ router.post("/login",async (req,res)=>{
         }
         const token=jwt.sign({_id:user._id,username:user.username,email:user.email},process.env.SECRET,{expiresIn:"3d"})
         const {password,...info}=user._doc
-        res.cookie("token",token,{
-       httpOnly:true,
-       maxAge:3600000*5,
-       secure:false,
-       sameSite:'none',
-       domain: 'https://sparkly-madeleine-79e83a.netlify.app/'
-    }).status(200).json(info)
+        res.cookie("token",token).status(200).json(info)
 
     }
     catch(err){
