@@ -41,7 +41,11 @@ router.post("/login",async (req,res)=>{
         const {password,...info}=user._doc
         console.log("password - " + password);
         console.log("info - " + info);
-        res.cookie("token",token).status(200).json(info)
+        res.cookie("token",token,{
+        httpOnly: true,
+        secure: true,
+        maxAge: 60 * 60 * 1000 // 1 hour
+        }).status(200).json(info)
 
     }
     catch(err){
