@@ -44,7 +44,8 @@ router.post("/login",async (req,res)=>{
         res.cookie("token",token,{
         httpOnly: true,
         secure: true,
-        maxAge: 60 * 60 * 1000 // 1 hour
+        maxAge: 60 * 60 * 1000,
+        path: '/'
         }).status(200).json(info)
 
     }
